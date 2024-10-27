@@ -1,0 +1,25 @@
+/* Add application styles & imports to this file! */
+@import '~swiper/swiper-bundle';
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 100%;
+}
+
+.swiper-container {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.swiper-slide {
+  padding: 10px;
+  border: 1px solid blue;
+  color: #000;
+}
+
+.row {
+  border: 1px solid red;
+}

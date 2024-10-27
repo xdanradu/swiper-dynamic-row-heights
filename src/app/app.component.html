@@ -1,0 +1,41 @@
+<main>
+  <div #container>
+    <h3>Custom pagination</h3>
+    <swiper
+      #swiperRef
+      [navigation]="navigation"
+      (swiper)="log('swiper')"
+      (slideChange)="log('slideChange')"
+      [slidesPerView]="3"
+      [spaceBetween]="50"
+      [breakpoints]="breakpoints"
+      [scrollbar]="scrollbar"
+      [loop]="true"
+      [(index)]="indexNumber"
+      [pagination]="{ el: '.swiper-pagination.pagination-test' }"
+    >
+      <ng-template
+        swiperSlide
+        let-data
+        *ngFor="let product of products; index as i"
+      >
+        <div class="row">{{ product.name }}</div>
+        <div class="row">{{ product.description }}</div>
+        <div class="row">{{ product.price }}</div>
+        <div class="row">{{ product.features }}</div>
+      </ng-template>
+      <div slot="container-end" class="swiper-pagination pagination-test"></div>
+    </swiper>
+    
+    <button (click)="slides.push('test')">Add slide</button>
+    <button (click)="toggleNavigation()">Toggle navigation</button>
+    <button (click)="toggleScrollbar()">Toggle scrollbar</button>
+    <button (click)="breakpointChange()">Breakpoint change</button>
+    <button (click)="show = !show">Toggle show</button>
+    <button (click)="indexNumber = 0">0</button>
+    <button (click)="indexNumber = 3">3</button>
+    <button (click)="indexNumber = 5">5</button>
+    <button (click)="indexNumber = 6">6</button>
+    {{ indexNumber }}
+  </div>
+</main>
